@@ -1,0 +1,90 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+
+char stack[5];
+int top=-1;
+
+
+int isfull(){
+    if(top==5-1)return 1;
+    else return 0;
+    
+}
+
+int isempty(){
+    if(top==-1)return 1;
+    else return 0;
+}
+
+
+
+void push(int num){
+    if(isfull()){
+        printf("Stack is full\n");
+    }else{
+        top++;
+        stack[top]=num;
+    }
+}
+
+int pop(){
+    if(isempty()){
+        printf("stack is empty.\n");
+    }
+    else{
+    return stack[top--];
+    }
+}
+
+void traverse(){
+    int i;
+    for(i=0;i<=top;i++)printf("%d\n",stack[i]);
+}
+
+int peek(){
+    return stack[top];
+}
+
+int isbalanced(char str[]){
+    printf("%s \n",str);
+    int i;
+    for( i = 0 ; i < strlen(str) ; i++){
+        if (str[i]=='('||str[i]=='[' || str[i]=='{'){
+            printf("got\n");
+            push(str[i]);
+        }
+        
+        if (str[i]==')'||str[i]==']' || str[i]=='}'){
+            char topValue=pop();
+            if(topValue=='(' && str[i]==')'){
+                
+            }
+            if(topValue=='{' && str[i]=='}'){
+                
+            }
+            if(topValue=='[' && str[i]==']'){
+                
+            }
+            
+        }
+    }
+}
+
+int main()
+{
+    char exp[100];
+    printf("Enter the expression\n");
+    scanf("%s",exp);
+    //printf("%s",exp);
+    isbalanced(exp);
+   
+    return 0;
+}
