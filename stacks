@@ -1,0 +1,71 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int stack[5];
+int top=-1;
+
+
+int isfull(){
+    if(top==5-1)return 1;
+    else return 0;
+    
+}
+
+int isempty(){
+    if(top==-1)return 1;
+    else return 0;
+}
+
+
+
+void push(int num){
+    if(isfull()){
+        printf("Stack is full\n");
+    }else{
+        top++;
+        stack[top]=num;
+    }
+}
+
+int pop(){
+    if(isempty()){
+        printf("stack is empty.\n");
+    }
+    else{
+    return stack[top--];
+    }
+}
+
+void traverse(){
+    int i;
+    for(i=0;i<=top;i++)printf("%d\n",stack[i]);
+}
+
+int peek(){
+    return stack[top];
+}
+
+
+int main()
+{
+    push(5);
+    push(10);
+    push(7);
+    push(5);
+    push(10);
+    traverse();
+    
+    push(7);
+   // traverse();
+   // pop();
+    //traverse();
+    //printf("%d",isfull());
+    return 0;
+}
